@@ -4,7 +4,7 @@
 function getData() {
     // Your existing PHP code to fetch data from the database
     // ...
-
+        $data = 'heloow world';
     // Return the data
     return $data;
 }
@@ -12,7 +12,7 @@ function getData() {
 function anotherFunction() {
     // Another function in your PHP code
     // ...
-
+    $result = 'Jay';
     // Return the result
     return $result;
 }
