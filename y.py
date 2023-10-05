@@ -1,10 +1,34 @@
-import subprocess
+import requests
 
-# Specify the path to your PHP file
-php_file_path = "path/to/your/example.php"
+# Replace this with the URL of your PHP file on GitHub
+github_php_url = "https://github.com/JayPatel-2023/SQL-OnlineDB/blob/main/y.php"
 
-# Run the PHP script and capture the output
-result = subprocess.run(["php", php_file_path], capture_output=True, text=True)
+# Make an HTTP request to the PHP file
+response = requests.get(github_php_url)
 
-# Print the output from the PHP script
-print("Output from PHP:", result.stdout)
+# Check if the request was successful (status code 200)
+if response.status_code == 200:
+    # Print the content returned by the PHP file
+    print("Output from PHP:", response.text)
+else:
+    print(f"Error: {response.status_code}")
+
+
+import requests
+
+# Replace this with the URL of your modified PHP file on GitHub
+github_php_url = "https://github.com/JayPatel-2023/SQL-OnlineDB/blob/main/y.php"
+
+# Specify the function to call
+function_name = "getData"
+
+# Make an HTTP request to the PHP file with the function parameter
+response = requests.get(github_php_url, params={"function": function_name})
+
+# Check if the request was successful (status code 200)
+if response.status_code == 200:
+    # Parse the JSON response
+    result = response.json()
+    print("Result from PHP function:", result)
+else:
+    print(f"Error: {response.status_code}")
